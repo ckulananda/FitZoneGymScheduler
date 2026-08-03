@@ -1,0 +1,31 @@
+﻿<Application x:Class="FitZoneGymScheduler.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:converters="clr-namespace:FitZoneGymScheduler.Converters"
+             StartupUri="Views/SplashScreenWindow.xaml">
+    
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- IMPORTANT: Colors FIRST -->
+                <ResourceDictionary Source="/Themes/Colors.xaml"/>
+
+                <!-- Styles SECOND -->
+                <ResourceDictionary Source="/Themes/Styles.xaml"/>
+
+
+
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

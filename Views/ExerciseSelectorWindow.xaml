@@ -1,0 +1,167 @@
+﻿<Window x:Class="FitZoneGymScheduler.Views.ExerciseSelectorWindow"
+         Icon="/Assets/icon.ico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Exercise Library"
+        Height="650"
+        Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
+
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT SIDE -->
+
+        <Border Grid.Column="0"
+                Background="White"
+                CornerRadius="10"
+                Padding="15"
+                Margin="0,0,15,0">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- SEARCH -->
+
+                <TextBox x:Name="SearchBox"
+                         Height="38"
+                         FontSize="16"
+                         Margin="0,0,0,15"
+                         VerticalContentAlignment="Center"
+                         TextChanged="SearchBox_TextChanged"/>
+
+                <!-- EXERCISE TABLE -->
+
+                <DataGrid x:Name="ExerciseGrid"
+                          Grid.Row="1"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionChanged="ExerciseGrid_SelectionChanged"
+                          HeadersVisibility="Column"
+                          RowHeight="35">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Exercise"
+                                            Binding="{Binding ExerciseName}"
+                                            Width="*" />
+
+                        <DataGridTextColumn Header="Target"
+                                            Binding="{Binding TargetArea}"
+                                            Width="120" />
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </Border>
+
+        <!-- RIGHT SIDE -->
+
+        <Border Grid.Column="1"
+                Background="White"
+                CornerRadius="10"
+                Padding="25">
+
+            <ScrollViewer>
+
+                <StackPanel>
+
+                    <TextBlock Text="Exercise Details"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Margin="0,0,0,25"/>
+
+                    <!-- NAME -->
+
+                    <TextBlock Text="Exercise Name"
+                               FontWeight="Bold"
+                               FontSize="15"/>
+
+                    <TextBlock x:Name="ExerciseNameText"
+                               FontSize="22"
+                               Margin="0,5,0,20"/>
+
+                    <!-- TARGET -->
+
+                    <TextBlock Text="Target Area"
+                               FontWeight="Bold"
+                               FontSize="15"/>
+
+                    <TextBlock x:Name="TargetAreaText"
+                               FontSize="18"
+                               Margin="0,5,0,20"/>
+
+                    <!-- DIFFICULTY -->
+
+                    <TextBlock Text="Difficulty"
+                               FontWeight="Bold"
+                               FontSize="15"/>
+
+                    <TextBlock x:Name="DifficultyText"
+                               FontSize="18"
+                               Margin="0,5,0,20"/>
+
+                    <!-- DESCRIPTION -->
+
+                    <TextBlock Text="Description"
+                               FontWeight="Bold"
+                               FontSize="15"/>
+
+                    <Border Background="#F8F9FC"
+                            Padding="15"
+                            CornerRadius="8"
+                            Margin="0,5,0,20">
+
+                        <TextBlock x:Name="DescriptionText"
+                                   TextWrapping="Wrap"
+                                   FontSize="15"/>
+                    </Border>
+
+                    <!-- NOTES -->
+
+                    <TextBlock Text="Notes"
+                               FontWeight="Bold"
+                               FontSize="15"/>
+
+                    <Border Background="#F8F9FC"
+                            Padding="15"
+                            CornerRadius="8"
+                            Margin="0,5,0,30">
+
+                        <TextBlock x:Name="NotesText"
+                                   TextWrapping="Wrap"
+                                   FontSize="15"/>
+                    </Border>
+
+                    <!-- BUTTON -->
+
+                    <Button Content="Select Exercise"
+                            Height="45"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Background="#2563EB"
+                            Foreground="White"
+                            Click="SelectButton_Click"/>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </Border>
+
+    </Grid>
+
+</Window>
